@@ -1,12 +1,16 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Map;
 
 public class CSC245_Project2 {
+    // Read the filename from the command line argument
+    public static void main(String[] args) throws Exception {
 
-    public static void main(String[] args) {
-        // Read the filename from the command line argument
-        String filename = args[0];
+        String filename = System.getenv("FILE_PATH");
+        if (filename == null) {
+            throw new Exception(".env file not found or Invalid Key");
+        }
         BufferedReader inputStream = null;
 
         String fileLine;
