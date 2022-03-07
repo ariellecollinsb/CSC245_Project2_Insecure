@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Map;
 import java.text.Normalizer;
 
 public class CSC245_Project2 {
@@ -10,7 +9,8 @@ public class CSC245_Project2 {
 
         String filename = System.getenv("FILE_PATH");
         if (filename == null) {
-            throw new Exception(".env file not found or Invalid Key");
+            //exception message written so it can be read and understood by any user
+            throw new Exception("Environment file not found or is in an incorrect format.");
         }
         BufferedReader inputStream = null;
 
@@ -36,6 +36,7 @@ public class CSC245_Project2 {
                 
                 System.out.println(fileLine);
             }
+            //stacktrace removed from system.out.println to prevent data leakage
         } catch (IOException io) {
             System.out.println("Error reading file" + filename);
         } finally {
@@ -45,6 +46,7 @@ public class CSC245_Project2 {
                 if (inputStream != null) {
                     inputStream.close();
                 }
+                //stacktrace removed from system.out.println to prevent data leakage
             } catch (IOException io) {
                 System.out.println("Issue closing the Files" + filename);
             }
