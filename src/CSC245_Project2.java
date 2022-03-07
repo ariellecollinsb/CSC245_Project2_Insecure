@@ -23,7 +23,7 @@ public class CSC245_Project2 {
                 System.out.println(fileLine);
             }
         } catch (IOException io) {
-            System.out.println("File IO exception" + io.getMessage());
+            System.out.println("Error reading file" + filename);
         } finally {
             // Need another catch for closing
             // the streams
@@ -32,7 +32,7 @@ public class CSC245_Project2 {
                     inputStream.close();
                 }
             } catch (IOException io) {
-                System.out.println("Issue closing the Files" + io.getMessage());
+                System.out.println("Issue closing the Files" + filename);
             }
 
         }
